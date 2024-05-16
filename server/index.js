@@ -30,7 +30,6 @@ const {
   deleteGameMap,
 } = require("./utils/queries/mapqueries");
 
-
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("connected to mongodb"))
@@ -49,10 +48,12 @@ server.listen(process.env.PORT, () => {
   console.log(`server listening on port ${process.env.PORT}`);
 });
 
-app.use("/", "hello from ananth");
+app.get("/", (req, res) => {
+  res.send("hello from ananth");
+});
+
 app.use("/user", user);
 app.use("/location", location);
-
 
 io.on("connection", (socket) => {
   console.log(`new socket connection ${socket.id} `);
