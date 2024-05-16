@@ -49,6 +49,7 @@ server.listen(process.env.PORT, () => {
   console.log(`server listening on port ${process.env.PORT}`);
 });
 
+app.use("/", "hello from ananth");
 app.use("/user", user);
 app.use("/location", location);
 
