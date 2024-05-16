@@ -1,0 +1,224 @@
+@import "../index.module.css";
+
+.main {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: var(--primary-background-color);
+  width: 80%;
+  box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+  -moz-box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+  -webkit-box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+}
+  
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.joinroominput {
+  color: rgba(243, 244, 246, 1);
+  border-radius: 0.375rem;
+  border: 1px solid rgba(55, 65, 81, 1);
+  outline: 0;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 0.75rem 1rem;
+  width: 24%;
+  margin-bottom: 1rem;
+}
+
+.joinroominput:focus {
+  border-color: rgba(167, 139, 250);
+}
+
+.inputbtn {
+  background-color: rgba(167, 139, 250, 1);
+  padding: 0.75rem;
+  text-align: center;
+  color: rgba(17, 24, 39, 1);
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  width: 8%;
+}
+
+.inputbtn:active {
+  background-color: rgb(110, 81, 199);
+}
+
+.roomcontainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.roommain {
+  /* background-color: hsl(240 5.88% 10% / 1); */
+  background-color: rgba(17, 24, 39, 1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.table {
+  background-color: transparent;
+  color: #dddddd;
+  width: 600px;
+  border-spacing: 0;
+}
+
+.tablehead1 {
+  background-color: rgb(85, 46, 135);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.tablehead2 {
+  background-color: rgb(85, 46, 135);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.item {
+  text-align: center;
+  margin: 10px;
+}
+
+.cell1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.cell2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.spanready {
+  background-color: #406240;
+  border-radius: 5px;
+  padding: 5px;
+  color: rgb(0, 225, 45);
+}
+
+.spannotready {
+  background-color: #624040;
+  border-radius: 5px;
+  padding: 5px;
+  color: rgb(208, 7, 7);
+}
+
+.btncontainer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.button {
+  margin: 2rem 8rem 0 0;
+  align-items: center;
+  appearance: none;
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 1px -2px, rgba(0, 0, 0, 0.14) 0 2px 2px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 5px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: 0.0892857em;
+  line-height: normal;
+  min-width: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  will-change: transform, opacity;
+  width: 12rem;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px -1px, rgba(0, 0, 0, 0.14) 0 4px 5px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 10px 0;
+}
+
+.button:disabled {
+  background-color: rgb(15, 48, 32);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 0, rgba(0, 0, 0, 0.14) 0 0 0 0,
+    rgba(0, 0, 0, 0.12) 0 0 0 0;
+  color: rgb(255, 255, 255);
+  cursor: default;
+  pointer-events: none;
+}
+
+.button:not(:disabled) {
+  background-color: #5713b7;
+}
+
+.button:focus {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px -1px, rgba(0, 0, 0, 0.14) 0 4px 5px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 10px 0;
+}
+
+.button:active {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 5px -3px,
+    rgba(0, 0, 0, 0.14) 0 8px 10px 1px, rgba(0, 0, 0, 0.12) 0 3px 14px 2px;
+  background: #370d73;
+}
+
+@media (width < 700px) {
+  .container {
+    width: 100%;
+  }
+
+  .joinroominput {
+    width: 45%;
+  }
+  .inputbtn {
+    width: 20%;
+    padding: 0.6rem;
+  }
+
+  .table {
+    width: 300px;
+  }
+
+  .button {
+    margin: 2rem 3rem 0 0;
+    width: 8rem;
+  }
+
+  .button:disabled {
+    padding: 0 12px;
+  }
+
+  .spanready {
+    font-size: 12px;
+  }
+
+  .spannotready {
+    font-size: 12px;
+  }
+}

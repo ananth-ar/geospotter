@@ -1,0 +1,38 @@
+.dialog {
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(50, 50, 50);
+  color: rgb(246, 244, 244);
+}
+
+.dialogcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog::backdrop {
+  background: rgba(23, 14, 36, 0.269);
+  z-index: 2;
+  backdrop-filter: blur(5px);
+}
+
+.contenttext {
+  margin-top: 12px;
+}
+
+@media (width < 600px) {
+  .dialog {
+    width: 10rem;
+    overflow: hidden;
+    padding: 10px  0;
+  }
+
+  .contenttext {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 3px;
+
+  }
+}

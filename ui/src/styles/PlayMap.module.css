@@ -1,0 +1,186 @@
+@import "../index.module.css";
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+.main {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.container {
+  background-color: var(--primary-background-color);
+  width: 80%;
+  box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+  -moz-box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+  -webkit-box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+}
+
+.h1 {
+  color: aliceblue;
+  margin: 2rem;
+  font-size: 180%;
+}
+
+.body {
+  --h: 212deg;
+  --l: 43%;
+  --brandColor: hsl(var(--h), 71%, var(--l));
+  font-family: Montserrat, sans-serif;
+  margin: 2rem;
+}
+
+.list {
+  list-style: none;
+  counter-reset: list;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.listItem {
+  --stop: calc(100% / var(--length) * var(--i));
+  --l: 62%;
+  --l2: 88%;
+  --h: calc((var(--i) - 1) * (180 / var(--length)));
+  --c1: hsl(var(--h), 71%, var(--l));
+  --c2: hsl(var(--h), 71%, var(--l2));
+  position: relative;
+  counter-increment: list;
+  width: 100%;
+  margin: 0.5rem;
+  padding: 2rem 1rem 1rem 2rem;
+  box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+.listItem::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--c1) var(--stop),
+    var(--c2) var(--stop)
+  );
+}
+
+.heading {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: rgb(70 70 70);
+  overflow: hidden;
+}
+
+.listcontainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.h3 {
+  margin: 0;
+  color: rgb(70 70 70);
+}
+
+.button {
+  align-items: center;
+  appearance: none;
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 1px -2px, rgba(0, 0, 0, 0.14) 0 2px 2px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 5px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: 0.0892857em;
+  line-height: normal;
+  min-width: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  will-change: transform, opacity;
+  width: 10rem;
+  background-color: #3413b7;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px -1px, rgba(0, 0, 0, 0.14) 0 4px 5px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 10px 0;
+}
+
+.button:active {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 5px -3px,
+    rgba(0, 0, 0, 0.14) 0 8px 10px 1px, rgba(0, 0, 0, 0.12) 0 3px 14px 2px;
+  background: #1c0d73;
+}
+
+@media (width < 700px) {
+  .main {
+    height: 100vb;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .list {
+    width: 90%;
+  }
+
+  .listItem {
+    margin: 0.5rem;
+    padding: 1rem 0.5rem 0.5rem 1rem;
+  }
+
+  .listItem::before {
+    height: 0.4rem;
+  }
+
+  .listcontainer {
+    margin-top: 0.7rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .heading::before {
+    margin-right: 1.5 rem;
+  }
+
+  .h3 {
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
+
+  .button {
+    height: 22px;
+    width: 10px;
+    font-size: 0.5rem;
+  }
+}

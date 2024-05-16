@@ -1,0 +1,12 @@
+/* CSS styles */
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+    
+  color: red;
+  width: fit-content; /* or you can use width: max-content; */
+}

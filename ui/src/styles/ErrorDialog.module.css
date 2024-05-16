@@ -1,0 +1,34 @@
+.dialog {
+  top: 5%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(70, 70, 73);
+  color: rgb(246, 244, 244);
+  animation: appear 350ms 1;
+  z-index: 10;
+}
+
+.dialogcontent {
+  display: flex;
+}
+
+.svg {
+  margin-right: 5px;
+  height: 25px;
+  width: 25px;
+  z-index: 100;
+}
+
+.p {
+  padding-top: 3px;
+  margin: 0;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+

@@ -1,0 +1,17 @@
+{
+  "name": "geospotter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "cd server && npm install",
+    "start-server": "cd server && node index.js",
+    "install-client": "cd ui && npm install",
+    "build-client": "cd ui && npm run build",
+    "start-client": "cd ui && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

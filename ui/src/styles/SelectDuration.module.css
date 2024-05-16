@@ -1,0 +1,148 @@
+.dialog {
+  width: 40%;
+  height: 35%;
+  background-color: rgba(17, 24, 39, 1);
+  color: rgba(243, 244, 246, 1);
+  border-width: 0;
+  border-radius: 10px;
+  padding: 0;
+  /* animation: fadeIn 1s ease both; */
+  /* overflow: hidden; */
+}
+
+.dialog::backdrop {
+  /* animation: fadeIn 1s ease both; */
+  background: rgba(23, 14, 36, 0.269);
+  z-index: 2;
+  backdrop-filter: blur(5px);
+}
+
+.closedialog {
+  display: flex;
+  justify-content: end;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  margin-top: 1%;
+  margin-right: 2.2%;
+  color: rgb(199, 199, 199);
+}
+
+.a:hover {
+  cursor: pointer;
+}
+
+.inputcontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem 0 1.5rem;
+}
+
+.mapname {
+  font-size: 30px;
+  padding: 0 0 14px 0;
+}
+
+.rounds {
+  font-size: 24px;
+  padding: 0 0 14px 0;
+}
+
+.formcontainer {
+  display: flex;
+  justify-content: start;
+}
+
+.durationinput {
+  color: rgba(243, 244, 246, 1);
+  border-radius: 0.375rem;
+  border: 1px solid rgba(55, 65, 81, 1);
+  outline: 0;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 0.75rem 1rem;
+  margin-right: 1rem;
+}
+
+.durationinput:focus {
+  border-color: rgba(167, 139, 250);
+}
+
+.inputbtn {
+  background-color: rgba(167, 139, 250, 1);
+  padding: 0.75rem;
+  text-align: center;
+  color: rgba(17, 24, 39, 1);
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+
+.inputbtn:active {
+  background-color: rgb(110, 81, 199);
+}
+
+.roomidcontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.label {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.alink {
+  text-align: center;
+  margin-top: 2.5rem;
+  text-decoration: underline;
+}
+
+.alink:active {
+  color: rgb(110, 81, 199);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  color: rgba(243, 244, 246, 1);
+  border-radius: 0.375rem;
+  border: 1px solid rgba(55, 65, 81, 1);
+  outline: 0;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 0.2rem 1rem;
+  border-radius: 5px 0 0 5px;
+}
+
+.button {
+  background-color: rgba(167, 139, 250, 1);
+  padding: 0.5rem;
+  text-align: center;
+  color: rgba(17, 24, 39, 1);
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  border-radius: 0 5px 5px 0;
+}
+
+@media (width < 700px) {
+  .dialog {
+    width: 78%;
+    height: 35%;
+  }
+  .mapname {
+    font-size: 24px;
+    padding: 0 0 14px 0;
+  }
+
+  .rounds {
+    font-size: 16px;
+    padding: 0 0 14px 0;
+  }
+
+  .durationinput {
+    margin-right: 0.5rem;
+  }
+}

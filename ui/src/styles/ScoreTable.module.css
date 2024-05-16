@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.main {
+  background: rgb(138, 106, 234);
+  border-radius: 8px;
+}
+
+.table {
+  background-color: transparent;
+  color: #dddddd;
+  border-spacing: 0;
+  font-size: 18px;
+}
+
+.tablehead1 {
+  background: #181c26;
+  border-top-left-radius: 5px;
+  padding: 12px 20px;
+}
+
+.tablehead2 {
+  background: #181c26;
+  border-top-right-radius: 5px;
+  padding: 12px 20px;
+}
+
+.item {
+  text-align: center;
+  margin: 10px;
+}
+
+.cell1 {
+  padding: 20px 50px;
+}
+
+.cell2 {
+  padding: 20px 50px;
+}
+
+@media (width < 600px) {
+  .table {
+    font-size: 16px;
+  }
+
+  .tablehead1 {
+    padding: 10px 15px;
+  }
+
+  .tablehead2 {
+    padding: 10px 15px;
+  }
+
+  .cell1 {
+    padding: 12px 40px;
+  }
+
+  .cell2 {
+    padding: 12px 40px;
+  }
+}

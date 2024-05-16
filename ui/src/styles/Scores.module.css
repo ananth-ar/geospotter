@@ -1,0 +1,43 @@
+@import "../index.module.css";
+
+.main {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: var(--primary-background-color);
+  width: 80%;
+  box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+  -moz-box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+  -webkit-box-shadow: 6px 0 4px -4px #00000012, -6px 0 4px -4px #00000012;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.h2 {
+  color: aliceblue;
+}
+
+.alink {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2.5rem;
+  text-decoration: underline;
+}
+
+.alink:active {
+  color: rgb(110, 81, 199);
+}
+
+@media (width < 600px) {
+  .container {
+    width: 100%;
+  }
+}

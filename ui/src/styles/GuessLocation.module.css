@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pano {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.map1 {
+  position: absolute;
+  bottom: 40px;
+  right: 7px;
+  z-index: 1;
+  transition: height 0.5s;
+}
+
+/* .submitLink {
+  position: absolute;
+  bottom: 10px;
+  right: 7px;
+  z-index: 1;
+  transition: height 0.5s;
+  background: white;
+} */
+
+.roundIndicator {
+  position: absolute;
+  padding: 5px 10px;
+  top: 1%;
+  left: 1%;
+  z-index: 2;
+  background: black;
+  opacity: 0.8;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.timerIndicator {
+  position: absolute;
+  padding: 5px 10px;
+  top: 1%;
+  left: 105px;
+  z-index: 2;
+  background: black;
+  opacity: 0.8;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.expandLink {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  z-index: 2;
+  color: white;
+}
+
+.button {
+  align-items: center;
+  appearance: none;
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 1px -2px, rgba(0, 0, 0, 0.14) 0 2px 2px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 5px 0;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #5713b7;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Roboto, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  justify-content: center;
+  letter-spacing: 0.0892857em;
+  line-height: normal;
+  min-width: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  will-change: transform, opacity;
+  width: 5rem;
+  height: 32px;
+  position: absolute;
+  bottom: 10px;
+  right: 7px;
+  z-index: 1;
+  transition: height 0.5s;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px -1px, rgba(0, 0, 0, 0.14) 0 4px 5px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 10px 0;
+}
+
+.button:focus {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 4px -1px, rgba(0, 0, 0, 0.14) 0 4px 5px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 10px 0;
+}
+
+.button:active {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 5px -3px,
+    rgba(0, 0, 0, 0.14) 0 8px 10px 1px, rgba(0, 0, 0, 0.12) 0 3px 14px 2px;
+  background: #370d73;
+}
+
+
+@media (width < 600px) {
+    .timerIndicator {
+        left: 90px;
+    }
+}
