@@ -6,21 +6,22 @@ import { useNavigate } from "react-router-dom";
 
 function GameMap({ socket }) {
   const [toggle, settoggle] = useState(true);
-  const [distance, setdistance] = useState();
-  const [urselection, seturselection] = useState();
+  const [buttondisable, setbuttondisable] = useState(false);
+  const [distance, setdistance] = useState(null);
+  const [points, setpoints] = useState(0);
+  const [urselection, seturselection] = useState(null);
   const nav = useNavigate();
 
   const { name, roomid, maps, index, streetviewloca } = sessiongamedata(nav);
 
   useEffect(() => {
     socket.emit("join-room", { name, roomid });
-    socket.on("distance", (distance) => {
-      let formattedNumber = distance.toFixed(1);
-      setdistance(formattedNumber);
-      settoggle(false);
-    });
-
-    console.log("playtime component have mounted");
+    // socket.on("distance", (distance) => {
+    //   let formattedNumber = distance.toFixed(1);
+    //   setdistance(formattedNumber);
+    //   setbuttondisable(false)
+    //   settoggle(false);
+    // });
 
     return () => {
       socket.off("distance");
@@ -31,19 +32,26 @@ function GameMap({ socket }) {
     <>
       {toggle ? (
         <GuessLocation
-          socket={socket}
-          name={name}
+          // socket={socket}
+          // name={name}
           maps={maps}
           streetviewloca={streetviewloca}
           index={index}
+          points={points}
+          settoggle={settoggle}
+          setdistance={setdistance}
+          setpoints={setpoints}
           urselection={urselection}
           seturselection={seturselection}
+          buttondisable={buttondisable}
+          setbuttondisable={setbuttondisable}
         />
       ) : (
         <ResultPage
           maps={maps}
           roomid={roomid}
           socket={socket}
+          points={points}
           streetviewloca={streetviewloca}
           urselection={urselection}
           seturselection={seturselection}

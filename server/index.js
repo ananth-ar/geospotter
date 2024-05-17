@@ -11,7 +11,7 @@ const {
   readylist,
   emitmapifallready,
 } = require("./utils/sockethelpers/user-ready");
-const { emitdistance } = require("./utils/sockethelpers/user-guess");
+// const { emitdistance } = require("./utils/sockethelpers/user-guess");
 const {
   markandemitonallcomplete,
 } = require("./utils/sockethelpers/completion");
@@ -71,12 +71,12 @@ io.on("connection", (socket) => {
     await emitmapifallready(io, roomid);
   });
 
-  socket.on("user-guess", async ({ name, mapname, urselection, index }) => {
-    await emitdistance(socket, name, mapname, urselection, index);
-  });
+  // socket.on("user-guess", async ({ name, mapname, urselection, index }) => {
+  //  await emitdistance(socket, name, mapname, urselection, index);
+  // });
 
-  socket.on("completed", async ({ name, roomid }) => {
-    await markandemitonallcomplete(io, socket, name, roomid);
+  socket.on("completed", async ({ name, roomid, points }) => {
+    await markandemitonallcomplete(io, name, roomid, points);
   });
 
   socket.on("disconnect", async () => {
@@ -114,3 +114,4 @@ io.on("connection", (socket) => {
     }
   });
 });
+

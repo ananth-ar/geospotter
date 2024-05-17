@@ -1,7 +1,8 @@
 const { resultsArray } = require("../queries/mapqueries");
-const { markandcheck } = require("../queries/userqueries");
+const { markandcheck, markpoints } = require("../queries/userqueries");
 
-async function markandemitonallcomplete(io, socket, name, roomid) {
+async function markandemitonallcomplete(io, name, roomid, points) {
+  await markpoints(name, points);
   const allCompleted = await markandcheck(name, roomid);
   if (allCompleted) {
     const results = await resultsArray(roomid);

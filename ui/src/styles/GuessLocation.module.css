@@ -22,15 +22,6 @@
   transition: height 0.5s;
 }
 
-/* .submitLink {
-  position: absolute;
-  bottom: 10px;
-  right: 7px;
-  z-index: 1;
-  transition: height 0.5s;
-  background: white;
-} */
-
 .roundIndicator {
   position: absolute;
   padding: 5px 10px;
@@ -122,9 +113,12 @@
   background: #370d73;
 }
 
+.button:disabled {
+  background-color: rgb(15, 48, 32);
+}
 
 @media (width < 600px) {
-    .timerIndicator {
-        left: 90px;
-    }
+  .timerIndicator {
+    left: 90px;
+  }
 }

@@ -9,10 +9,12 @@ const ResultPage = ({
   maps,
   roomid,
   socket,
+  points,
   streetviewloca,
   urselection,
   seturselection,
   distance,
+  setdistance,
   settoggle,
 }) => {
   const showwaitingRef = useRef(null);
@@ -48,9 +50,10 @@ const ResultPage = ({
     sessionStorage.setItem("index", JSON.stringify(val));
     if (maps.location.location.length <= val) {
       const name = JSON.parse(sessionStorage.getItem("name"));
-      socket.emit("completed", { name, roomid });
+      socket.emit("completed", { name, roomid, points });
       showwaitingRef.current.openDialog();
     } else {
+      setdistance(null);
       settoggle(true);
     }
     seturselection("");
