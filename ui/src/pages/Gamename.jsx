@@ -7,12 +7,14 @@ import ErrorDialog from "../components/ErrorDialog";
 function Gamename() {
   const [gamename, setgamename] = useState();
   const [errormsg, seterrormsg] = useState();
+  const [buttondisabled, setbuttondisabled] = useState(false);
   const errorRef = useRef(null);
   const nav = useNavigate();
   const name = { name: gamename };
 
   async function handleGO(e) {
     e.preventDefault();
+    setbuttondisabled(true)
     const input = e.target.elements[0];
     const pattern = new RegExp(input.pattern);
 
@@ -21,6 +23,7 @@ function Gamename() {
       if (res) {
         seterrormsg(res);
         errorRef.current.openDialog();
+        setbuttondisabled(false);
       }
     }
   }
@@ -39,7 +42,9 @@ function Gamename() {
               title="least 3 and at most 12 alphabetic characters"
               placeholder="enter a gamename..."
             ></input>
-            <button className={styles.button}>GO</button>
+            <button disabled={buttondisabled} className={styles.button}>
+              {buttondisabled ? ( <div className={styles.loader}></div>) : ('GO')}
+            </button>
           </form>
         </div>
       </div>

@@ -13,6 +13,7 @@ function Selectplaces() {
   const { mapname, rounds } = useContext(PlayContext);
   const [selectedmaps, setselectedmaps] = useState([]);
   const [currentmap, setcurrentmap] = useState();
+  const [buttondisabled, setbuttondisabled] = useState(false);
   const [errormsg, seterrormsg] = useState();
   const errorRef = useRef(null);
   const nav = useNavigate();
@@ -29,12 +30,15 @@ function Selectplaces() {
 
     async function postcreatedmap(mapname, selectedmaps) {
       if (selectedmaps.length >= rounds) {
+        setbuttondisabled(true);
         const res = await createMap(mapname, selectedmaps);
         if (res) {
           seterrormsg(res);
           errorRef.current.openDialog();
+          setbuttondisabled(false);
         } else {
           nav("/play");
+          setbuttondisabled(false);
         }
       }
     }
@@ -64,9 +68,13 @@ function Selectplaces() {
       <div className={styles.rounds}>
         <div>Round {selectedmaps.length}</div>
       </div>
-      <Link className={styles.button} onClick={handlemapselect}>
-        Select
-      </Link>
+      <button
+        disabled={buttondisabled}
+        className={styles.button}
+        onClick={handlemapselect}
+      >
+        {buttondisabled ? "Saving..." : "Select"}
+      </button>
       <ErrorDialog ref={errorRef} errormsg={errormsg} />
     </>
   );

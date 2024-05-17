@@ -10,6 +10,7 @@ function Room({ socket, setisgameon }) {
   const [roomid, setroomid] = useState();
   const [ready, setReady] = useState(false);
   const [buttondisabled, setbuttondisabled] = useState(false);
+  const [inputbtndisabled, setinputbtndisabled] = useState(false);
   const [errormsg, seterrormsg] = useState();
   const errorRef = useRef(null);
   const nav = useNavigate();
@@ -17,6 +18,7 @@ function Room({ socket, setisgameon }) {
   useEffect(() => {
     socket.on("newreadylist", (list) => {
       setplayers(list);
+      setinputbtndisabled(false);
     });
 
     socket.on("ondisconnect-newreadylist", ({ roomid, list }) => {
@@ -45,17 +47,20 @@ function Room({ socket, setisgameon }) {
       if (status === "Invalid room id") {
         seterrormsg("Invalid room id");
         errorRef.current.openDialog();
+        setinputbtndisabled(false);
       } else if (status === "Match has already started") {
         seterrormsg(
           "Error: Room already in use. Please avoid refreshing during gameplay."
         );
         errorRef.current.openDialog();
+        setinputbtndisabled(false);
       }
     });
 
     const name = getfromSessionStorage("name", nav);
     const roomid = JSON.parse(sessionStorage.getItem("room"));
     if (roomid) {
+      setinputbtndisabled(true);
       socket.emit("join-room", { name, roomid });
     }
 
@@ -92,7 +97,7 @@ function Room({ socket, setisgameon }) {
 
   function handlejoin(e) {
     e.preventDefault();
-
+    setinputbtndisabled(true);
     const name = getfromSessionStorage("name", nav);
     socket.emit("join-room", { name, roomid });
     sessionStorage.setItem("room", JSON.stringify(roomid));
@@ -162,7 +167,13 @@ function Room({ socket, setisgameon }) {
                   onChange={(e) => setroomid(e.target.value)}
                   value={roomid}
                 />
-                <button className={styles.inputbtn}>JOIN</button>
+                <button disabled={inputbtndisabled} className={styles.inputbtn}>
+                  {inputbtndisabled ? (
+                    <div className={styles.loader}></div>
+                  ) : (
+                    "JOIN"
+                  )}
+                </button>
               </form>
             </div>
           )}

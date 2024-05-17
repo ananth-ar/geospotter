@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/Play.module.css";
 import CreateMap from "../components/CreateMap";
+import GithubLink from "../components/GithubLink";
 
 function Play() {
   const createmapRef = useRef(null);
@@ -14,6 +15,9 @@ function Play() {
     <>
       <div className={styles.main}>
         <div className={styles.container}>
+          <div className={styles.gitlinkcontainer}>
+            <GithubLink />
+          </div>
           <h1 className={styles.heading}>Welcome to Geospotter</h1>
           <div className={styles.buttoncontainer}>
             <Link className={styles.button} to={"/play/playmap"}>

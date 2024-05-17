@@ -85,6 +85,10 @@
   background: #370d73;
 }
 
+.button:disabled {
+  background-color: rgb(15, 48, 32);
+}
+
 @media (orientation: portrait) {
   .container {
     display: flex;

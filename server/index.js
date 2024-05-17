@@ -44,8 +44,10 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-server.listen(process.env.PORT, () => {
-  console.log(`server listening on port ${process.env.PORT}`);
+const port = process.env.NODE_ENV === 'production' ? process.env.PORT : 3001
+
+server.listen(port, () => {
+  console.log(`server listening on port ${port}`);
 });
 
 app.get("/", (req, res) => {

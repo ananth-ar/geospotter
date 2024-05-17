@@ -2,13 +2,14 @@ import { mapview, marker, streetView } from "../services/map";
 
 export async function selectplaceMap(currentmap, handleMapClick) {
   const MapProperties = {
-    center: { lat: 42.345573, lng: -71.098326 },
+    center: currentmap ? currentmap : { lat: 42.345573, lng: -71.098326 },
     mapId: "bd6a084bedeb455",
-    zoom: 10,
-    minZoom: 2,
+    zoom: 4,
+    minZoom: 1,
     maxZoom: 19,
     mapTypeControl: false,
     streetViewControl: false,
+    showRoadLabels: false,
     restriction: {
       latLngBounds: {
         north: 85,
@@ -38,7 +39,11 @@ export async function selectplaceMap(currentmap, handleMapClick) {
     map: map,
     position: currentmap,
   };
-  
+  const { StreetViewCoverageLayer } = await google.maps.importLibrary(
+    "streetView"
+  );
+  const coverage = new StreetViewCoverageLayer();
+  coverage.setMap(map);
   await marker(MarkerProperties);
   map.setStreetView(panorama);
 }
@@ -66,8 +71,8 @@ export async function markguess(mark, setmarker) {
     center: { lat: 42.345573, lng: -71.098326 },
     mapId: "53b764d0605d9a3e",
     disableDefaultUI: true,
-    zoom: 10,
-    minZoom: 2,
+    zoom: 5,
+    minZoom: 1,
     maxZoom: 19,
     restriction: {
       latLngBounds: {

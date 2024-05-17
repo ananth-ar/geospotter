@@ -75,6 +75,9 @@ function SelectDuration({ mapname, round }, ref) {
                   {isActive ? "copied!" : "copy"}
                 </button>
               </div>
+              <div className={styles.label1}>
+                share it with your friends so they can join.
+              </div>
             </div>
             <Link className={styles.alink} to={"/play/playtime"}>
               go to room

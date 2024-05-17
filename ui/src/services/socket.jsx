@@ -1,6 +1,7 @@
 import io from "socket.io-client";
+import { BASE_URL } from "./url";
 
-const socket = io("https://geospotter.onrender.com", {
+const socket = io(`${BASE_URL}`, {
   autoConnect: false,
 });
 

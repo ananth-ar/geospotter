@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.formcontainer{
+.formcontainer {
   display: flex;
   justify-content: space-around;
 }
@@ -51,6 +51,31 @@
 
 .button:active {
   background-color: rgb(110, 81, 199);
+}
+
+.button:disabled{
+  background-color: rgb(139, 107, 234);
+  padding: 0 0.8rem;
+}
+
+.loader {
+  background-color: rgb(139, 107, 234);
+  border: 3px solid rgba(0, 0, 0, 0.395);
+  border-left-color: transparent;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  animation: spin89345 1s linear infinite;
+}
+
+@keyframes spin89345 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (width < 600px) {

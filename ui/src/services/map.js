@@ -1,9 +1,8 @@
 import { Loader } from "@googlemaps/js-api-loader";
 
-
 export async function mapview(elmentid, locationproperties) {
   const loader = new Loader({
-    apiKey: "AIzaSyDucWqo-yEz6IbRmaI-Dq_iRGyZk_Kjeno",
+    apiKey: import.meta.env.VITE_API_MAP,
     version: "weekly",
   });
   await loader.load();
