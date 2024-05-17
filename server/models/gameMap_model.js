@@ -16,10 +16,8 @@ const gameMapSchema = new mongoose.Schema({
   hasStarted: Boolean,
   isCompleted: Boolean,
   location: { type: mongoose.Schema.Types.ObjectId, ref: "Location" },
-  // createdAt: { type: Date, expires: 6400, default: Date.now },
+  createdAt: { type: Date, expires: "1d", default: Date.now },
 });
-
-// gameMapSchema.index({ createdAt: 1 }, { expireAfterSeconds: 6400 });
 
 const GameMap = mongoose.model("GameMap", gameMapSchema);
 
