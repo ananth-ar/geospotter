@@ -1,8 +1,6 @@
-import { Loader } from "@googlemaps/js-api-loader";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PlayContext } from "../context/PlayProvider";
-import { Link } from "react-router-dom";
 import { selectplaceMap } from "../utils/maphelper";
 import { checkStreetView } from "../utils/helper";
 import { createMap } from "../services/api";

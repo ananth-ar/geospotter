@@ -97,11 +97,10 @@ export async function markguess(mark, setmarker) {
 
 export async function resultmap(loca, urselection) {
   const MapProperties = {
-    zoom: 3,
     center: loca,
     mapId: "e82872e0833acada",
     disableDefaultUI: true,
-    zoom: 10,
+    zoom: 3,
     minZoom: 2,
     maxZoom: 19,
     restriction: {

@@ -56,7 +56,7 @@ const ResultPage = ({
       setdistance(null);
       settoggle(true);
     }
-    seturselection("");
+    seturselection(null);
   }
 
   return (

@@ -63,7 +63,7 @@ function GuessLocation({
       let point = 250 - Math.floor(distance / 10);
       setpoints(points + point);
     }
-    seturselection(null);
+  
     settoggle(false);
     setbuttondisable(false);
   }
