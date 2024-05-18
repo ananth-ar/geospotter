@@ -11,24 +11,11 @@ const {
   readylist,
   emitmapifallready,
 } = require("./utils/sockethelpers/user-ready");
-// const { emitdistance } = require("./utils/sockethelpers/user-guess");
 const {
   markandemitonallcomplete,
 } = require("./utils/sockethelpers/completion");
-const {
-  userreadydisconnect,
-  allcompleteddisconnect,
-} = require("./utils/sockethelpers/disconnect");
-const {
-  makeready,
-  resetuser,
-  numofplayerinroom,
-  checkallcompleted,
-} = require("./utils/queries/userqueries");
-const {
-  getGameMapStatus,
-  deleteGameMap,
-} = require("./utils/queries/mapqueries");
+const { ondisconnectwithLock } = require("./utils/sockethelpers/disconnect");
+const { makeready } = require("./utils/queries/userqueries");
 
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -44,18 +31,15 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.NODE_ENV === 'production' ? process.env.PORT : 3001
+app.use("/user", user);
+app.use("/location", location);
+
+const port = process.env.NODE_ENV === "production" ? process.env.PORT : 3001;
 
 server.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
 
-app.get("/", (req, res) => {
-  res.send("hello from ananth");
-});
-
-app.use("/user", user);
-app.use("/location", location);
 
 io.on("connection", (socket) => {
   console.log(`new socket connection ${socket.id} `);
@@ -71,47 +55,11 @@ io.on("connection", (socket) => {
     await emitmapifallready(io, roomid);
   });
 
-  // socket.on("user-guess", async ({ name, mapname, urselection, index }) => {
-  //  await emitdistance(socket, name, mapname, urselection, index);
-  // });
-
   socket.on("completed", async ({ name, roomid, points }) => {
     await markandemitonallcomplete(io, name, roomid, points);
   });
 
   socket.on("disconnect", async () => {
-    console.log(
-      `user ${socket.username && socket.username.name} with socket id ${
-        socket.id
-      } has been disconnected`
-    );
-
-    if (socket.username) {
-      const roomid = await resetuser(socket.username.name);
-      console.log(
-        `user ${socket.username.name} resetted and the room id ${roomid}`
-      );
-      if (roomid) {
-        const { isCompleted, hasStarted } = await getGameMapStatus(roomid);
-        console.log(`isCompleted: ${isCompleted}, hasStarted:${hasStarted}`);
-        if (isCompleted) {
-          await deleteGameMap(roomid);
-        } else {
-          if (!hasStarted) {
-            const islast = await numofplayerinroom(roomid);
-            console.log(`islast: ${islast}`);
-            if (!islast) {
-              await userreadydisconnect(io, socket, roomid);
-            }
-          } else {
-            const allCompleted = await checkallcompleted(roomid);
-            if (allCompleted) {
-              await allcompleteddisconnect(socket, roomid);
-            }
-          }
-        }
-      }
-    }
+    await ondisconnectwithLock(socket);
   });
 });
-

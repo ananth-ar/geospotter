@@ -1,7 +1,6 @@
 const GameMap = require("../../models/gameMap_model");
 const User = require("../../models/user_model");
 
-
 async function createuser(name) {
   const existingUser = await User.findOne({ name });
   if (existingUser) {
@@ -29,7 +28,6 @@ async function joinroom(gamename, room) {
       user.room = room;
       await user.save();
       return "Joined room successfully";
-      
     } else {
       if (!gamemap) {
         return "Invalid room id";
@@ -109,6 +107,7 @@ async function markandcheck(gamename, room) {
 async function resetuser(name) {
   try {
     let user = await User.findOne({ name: name });
+   
     const roomid = user.room;
     user.isReady = false;
     user.points = 0;
@@ -116,7 +115,9 @@ async function resetuser(name) {
     user.room = null;
     await user.save();
 
-    return roomid;
+    let gamemap = await GameMap.findOne({ room: roomid });
+
+    return { roomid, gamemap };
   } catch (error) {
     console.log("error while resetting user" + error);
   }

@@ -17,7 +17,7 @@ function GithubLink() {
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>github [#142]</title>
+          <title>Github </title>
           <desc>Created with Sketch.</desc>
           <defs></defs>
           <g

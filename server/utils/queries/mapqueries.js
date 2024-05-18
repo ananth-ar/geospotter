@@ -1,5 +1,4 @@
 const User = require("../../models/user_model");
-const { calculateDistance } = require("../calculateDistance");
 const GameMap = require("../../models/gameMap_model");
 const Location = require("../../models/location_model");
 
@@ -28,31 +27,6 @@ async function getmap(mapname) {
   const mapobj = await Location.findOne({ mapname });
   return mapobj;
 }
-
-// async function getdistanceandpoint(mapname, location, index) {
-//   try {
-//     if (location) {
-//       const map = await Location.findOne({ mapname: mapname });
-//       if (!map) {
-//         console.log("Location not found");
-//         return null;
-//       }
-//       const locationObject = map.location[index];
-//       const distance = calculateDistance(location, locationObject);
-//       let point = 0;
-//       if (distance < 2500) {
-//         point = 250 - Math.floor(distance / 10);
-//       }
-//       return { point, distance };
-//     } else {
-//       let point = 0;
-//       let distance;
-//       return { point, distance };
-//     }
-//   } catch (error) {
-//     console.error("Error fetching location:", error);
-//   }
-// }
 
 async function saveGameMap(room, roundtime, mapname) {
   const mapobj = await Location.findOne(
@@ -113,7 +87,6 @@ module.exports = {
   savemap,
   getallmap,
   getmap,
-  // getdistanceandpoint,
   saveGameMap,
   getGameMap,
   resultsArray,

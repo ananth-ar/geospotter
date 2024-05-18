@@ -97,10 +97,15 @@ function Room({ socket, setisgameon }) {
 
   function handlejoin(e) {
     e.preventDefault();
-    setinputbtndisabled(true);
-    const name = getfromSessionStorage("name", nav);
-    socket.emit("join-room", { name, roomid });
-    sessionStorage.setItem("room", JSON.stringify(roomid));
+    const input = e.target.elements[0];
+    const pattern = new RegExp(input.pattern);
+
+    if (pattern.test(input.value)) {
+      setinputbtndisabled(true);
+      const name = getfromSessionStorage("name", nav);
+      socket.emit("join-room", { name, roomid });
+      sessionStorage.setItem("room", JSON.stringify(roomid));
+    }
   }
 
   function handleuserready() {
@@ -164,6 +169,8 @@ function Room({ socket, setisgameon }) {
                 <input
                   className={styles.joinroominput}
                   placeholder="enter room id..."
+                  pattern="^\d{3,12}$"
+                  title="least 3 and at most 12 numeric characters"
                   onChange={(e) => setroomid(e.target.value)}
                   value={roomid}
                 />
