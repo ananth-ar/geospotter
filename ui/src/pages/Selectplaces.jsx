@@ -18,6 +18,7 @@ function Selectplaces() {
 
   function handlemapselect() {
     setselectedmaps([...selectedmaps, currentmap]);
+    setcurrentmap(null);
   }
 
   useEffect(() => {

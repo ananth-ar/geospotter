@@ -4,12 +4,13 @@ export async function selectplaceMap(currentmap, handleMapClick) {
   const MapProperties = {
     center: currentmap ? currentmap : { lat: 42.345573, lng: -71.098326 },
     mapId: "bd6a084bedeb455",
-    zoom: 4,
+    zoom: 2,
     minZoom: 1,
     maxZoom: 19,
     mapTypeControl: false,
     streetViewControl: false,
     showRoadLabels: false,
+    gestureHandling: "greedy",
     restriction: {
       latLngBounds: {
         north: 85,
@@ -28,6 +29,8 @@ export async function selectplaceMap(currentmap, handleMapClick) {
     },
     addressControl: false,
     fullscreenControl: false,
+    motionTracking: false,
+    motionTrackingControl: false,
   };
 
   const map = await mapview("map", MapProperties);
@@ -57,6 +60,8 @@ export async function guesspano(loca) {
     },
     addressControl: false,
     fullscreenControl: false,
+    motionTracking: false,
+    motionTrackingControl: false,
   };
 
   const map = await mapview("map");
@@ -67,13 +72,13 @@ export async function guesspano(loca) {
 
 export async function markguess(mark, setmarker) {
   const MapProperties = {
-    zoom: 1,
-    center: { lat: 42.345573, lng: -71.098326 },
+    center: mark ? mark : { lat: 42.345573, lng: -71.098326 },
     mapId: "53b764d0605d9a3e",
     disableDefaultUI: true,
-    zoom: 5,
+    zoom: 3,
     minZoom: 1,
     maxZoom: 19,
+    gestureHandling: "greedy",
     restriction: {
       latLngBounds: {
         north: 85,
@@ -103,6 +108,7 @@ export async function resultmap(loca, urselection) {
     zoom: 3,
     minZoom: 2,
     maxZoom: 19,
+    gestureHandling: "greedy",
     restriction: {
       latLngBounds: {
         north: 85,

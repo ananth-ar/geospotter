@@ -6,8 +6,6 @@ import SvgMapExpandIcon from "./SvgMapExpandIcon";
 import { calculateDistance } from "../utils/calculateDistance";
 
 function GuessLocation({
-  // socket,
-  // name,
   maps,
   streetviewloca,
   index,
@@ -52,8 +50,6 @@ function GuessLocation({
 
   function markpoints() {
     setbuttondisable(true);
-    // const mapname = maps.location.mapname;
-    // socket.emit("user-guess", { name, mapname, urselection, index });
     const distance = calculateDistance(streetviewloca, urselection);
     if (distance != null) {
       let formattedNumber = distance.toFixed(1);
@@ -63,7 +59,7 @@ function GuessLocation({
       let point = 250 - Math.floor(distance / 10);
       setpoints(points + point);
     }
-  
+    setmark(null);
     settoggle(false);
     setbuttondisable(false);
   }
@@ -75,19 +71,15 @@ function GuessLocation({
         <div id="pano" className={styles.pano} />
         <div
           id="map1"
-          className={styles.map1}
-          style={{
-            width: expanded ? "400px" : "0px",
-            height: expanded ? "400px" : "0px",
-          }}
+          className={`${styles.map1} ${
+            expanded ? styles.map1Expanded : styles.map1Collapsed
+          }`}
         ></div>
         <button
-          className={styles.button}
+          className={`${styles.button} ${
+            expanded ? styles.expanded : styles.collapsed
+          }`}
           disabled={buttondisable}
-          style={{
-            width: expanded ? "400px" : "0px",
-            height: expanded ? "30px" : "0px",
-          }}
           onClick={markpoints}
         >
           {expanded && "SUBMIT"}

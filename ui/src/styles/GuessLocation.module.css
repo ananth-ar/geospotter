@@ -95,6 +95,7 @@
   right: 7px;
   z-index: 1;
   transition: height 0.5s;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
@@ -117,8 +118,46 @@
   background-color: rgb(15, 48, 32);
 }
 
+.expanded {
+  width: 500px;
+  height: 30px;
+  margin-bottom: 0;
+}
+
+.collapsed {
+  width: 0px;
+  height: 0px;
+  margin-bottom: 0;
+}
+
+.map1 {
+  transition: all 0.3s ease;
+}
+
+.map1Expanded {
+  width: 500px;
+  height: 500px;
+}
+
+.map1Collapsed {
+  width: 0px;
+  height: 0px;
+}
+
 @media (width < 600px) {
   .timerIndicator {
     left: 90px;
+  }
+
+  .expanded {
+    width: 400px;
+    height: 30px;
+    margin-bottom: 25px;
+  }
+
+  .map1Expanded {
+    width: 400px;
+    height: 400px;
+    margin-bottom: 30px;
   }
 }
