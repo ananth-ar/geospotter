@@ -16,12 +16,6 @@ function GameMap({ socket }) {
 
   useEffect(() => {
     socket.emit("join-room", { name, roomid });
-    // socket.on("distance", (distance) => {
-    //   let formattedNumber = distance.toFixed(1);
-    //   setdistance(formattedNumber);
-    //   setbuttondisable(false)
-    //   settoggle(false);
-    // });
 
     return () => {
       socket.off("distance");
@@ -32,8 +26,6 @@ function GameMap({ socket }) {
     <>
       {toggle ? (
         <GuessLocation
-          // socket={socket}
-          // name={name}
           maps={maps}
           streetviewloca={streetviewloca}
           index={index}
@@ -66,12 +58,3 @@ function GameMap({ socket }) {
 
 export default GameMap;
 
-// export function isquestionpresent() {
-//   const question = sessionStorage.getItem("maps");
-//   if (!question) {
-//     alert("error while loading!!");
-//     console.log("loader has been called now!!");
-//     return redirect("/play/room");
-//   }
-//   return null;
-// }

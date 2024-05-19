@@ -12,6 +12,7 @@ function SelectDuration({ mapname, round }, ref) {
   const [showroomid, setShowroomid] = useState(false);
   const [roundtime, setroundtime] = useState();
   const [roomid, setroomid] = useState();
+  const [buttondisabled, setbuttondisabled] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const dialogRef = useRef(null);
 
@@ -21,10 +22,12 @@ function SelectDuration({ mapname, round }, ref) {
     const pattern = new RegExp(input.pattern);
 
     if (pattern.test(input.value)) {
+      setbuttondisabled(true);
       const room = await createGameMap(mapname, roundtime);
       sessionStorage.setItem("room", JSON.stringify(room));
       setroomid(room);
       setShowroomid(true);
+      setbuttondisabled(false);
     }
   }
 
@@ -95,7 +98,13 @@ function SelectDuration({ mapname, round }, ref) {
                 title="least 1 and at most 3 numeric characters"
                 onChange={(e) => setroundtime(e.target.value)}
               />
-              <button className={styles.inputbtn}>submit</button>
+              <button disabled={buttondisabled} className={styles.inputbtn}>
+                {buttondisabled ? (
+                  <div className={styles.loader}></div>
+                ) : (
+                  "submit"
+                )}
+              </button>
             </form>
           </div>
         )}
