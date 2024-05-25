@@ -1,5 +1,5 @@
-const { getGameMap } = require("../queries/mapqueries");
-const { listofusersinroom, getUsersReadyInRoom } = require("../queries/userqueries");
+const { getGameMap } = require("../../services/map");
+const { listofusersinroom, getUsersReadyInRoom } = require("../../services/user");
 
 async function readylist(io, roomid) {
   const list = await listofusersinroom(roomid);

@@ -1,4 +1,4 @@
-const { joinroom } = require("../queries/userqueries");
+const { joinroom } = require("../../services/user");
 
 async function joinsocketroom(name, roomid, socket) {
   const status = await joinroom(name, roomid);

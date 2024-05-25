@@ -1,5 +1,5 @@
-const GameMap = require("../../models/gameMap_model");
-const User = require("../../models/user_model");
+const GameMap = require("../models/gameMap_model");
+const User = require("../models/user_model");
 
 async function createuser(name) {
   const existingUser = await User.findOne({ name });

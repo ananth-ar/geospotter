@@ -1,5 +1,5 @@
-const { resultsArray } = require("../queries/mapqueries");
-const { markandcheck, markpoints } = require("../queries/userqueries");
+const { resultsArray } = require("../../services/map");
+const { markandcheck, markpoints } = require("../../services/user");
 
 async function markandemitonallcomplete(io, name, roomid, points) {
   await markpoints(name, points);

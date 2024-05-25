@@ -1,6 +1,6 @@
-const User = require("../../models/user_model");
-const GameMap = require("../../models/gameMap_model");
-const Location = require("../../models/location_model");
+const User = require("../models/user_model");
+const GameMap = require("../models/gameMap_model");
+const Location = require("../models/location_model");
 
 async function savemap(mapname, location) {
   const existingmap = await Location.findOne({ mapname });

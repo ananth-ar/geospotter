@@ -3,14 +3,14 @@ const {
   resultsArray,
   getGameMapStatus,
   deleteGameMap,
-} = require("../queries/mapqueries");
+} = require("../../services/map");
 const {
   listofusersinroom,
   getUsersReadyInRoom,
   resetuser,
   numofplayerinroom,
   checkallcompleted,
-} = require("../queries/userqueries");
+} = require("../../services/user");
 const AsyncLock = require("async-lock");
 
 const lock = new AsyncLock();

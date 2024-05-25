@@ -15,7 +15,7 @@ const {
   markandemitonallcomplete,
 } = require("./utils/sockethelpers/completion");
 const { ondisconnectwithLock } = require("./utils/sockethelpers/disconnect");
-const { makeready } = require("./utils/queries/userqueries");
+const { makeready } = require("./services/user");
 
 mongoose
   .connect(process.env.MONGODB_URI)
