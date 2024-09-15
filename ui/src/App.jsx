@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import Gamename from "./pages/Gamename";
 import Play from "./pages/Play";
 import Selectplaces from "./pages/Selectplaces";
@@ -9,6 +13,10 @@ import PlayProvider from "./context/PlayProvider";
 import PlayMap from "./pages/PlayMap";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/gamename" replace />,
+  },
   {
     path: "/gamename",
     element: <Gamename />,
@@ -46,8 +54,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-
-  
   return (
     <>
       <RouterProvider router={router} />

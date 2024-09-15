@@ -14,7 +14,7 @@ function Gamename() {
 
   async function handleGO(e) {
     e.preventDefault();
-    setbuttondisabled(true)
+    setbuttondisabled(true);
     const input = e.target.elements[0];
     const pattern = new RegExp(input.pattern);
 
@@ -32,20 +32,23 @@ function Gamename() {
     <>
       <div className={styles.container}>
         <div className={styles.input_container}>
-          <form className={styles.formcontainer} onSubmit={handleGO}>
-            <input
-              className={styles.input}
-              type="text"
-              required
-              onChange={(e) => setgamename(e.target.value)}
-              pattern="^(?!.*\s$)(?!^\s)(?=.*\S)[\s\S]{3,12}$"
-              title="least 3 and at most 12 alphabetic characters"
-              placeholder="enter a gamename..."
-            ></input>
-            <button disabled={buttondisabled} className={styles.button}>
-              {buttondisabled ? ( <div className={styles.loader}></div>) : ('GO')}
-            </button>
-          </form>
+          <div className={styles.inputdata}>
+            <form className={styles.formcontainer} onSubmit={handleGO}>
+              <input
+                className={styles.input}
+                type="text"
+                required
+                onChange={(e) => setgamename(e.target.value)}
+                pattern="^(?!.*\s$)(?!^\s)(?=.*\S)[\s\S]{3,12}$"
+                title="least 3 and at most 12 alphabetic characters"
+                placeholder="enter your gamename..."
+              ></input>
+              <button disabled={buttondisabled} className={styles.button}>
+                {buttondisabled ? <div className={styles.loader}></div> : "GO"}
+              </button>
+            </form>
+            <label className={styles.info_label}>sometimes it may take 2mins to load</label>
+          </div>
         </div>
       </div>
       <ErrorDialog ref={errorRef} errormsg={errormsg} />
