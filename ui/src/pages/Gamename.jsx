@@ -47,7 +47,7 @@ function Gamename() {
                 {buttondisabled ? <div className={styles.loader}></div> : "GO"}
               </button>
             </form>
-            <label className={styles.info_label}>sometimes it may take 2mins to load</label>
+            <label className={styles.info_label}>sometimes it may take 1 minute to load</label>
           </div>
         </div>
       </div>
